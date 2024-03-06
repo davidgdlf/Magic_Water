@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo proyecto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .content {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        h3 {
+            color: #666;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+        input[type="text"],
+        input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <h2>Creación de un nuevo proyecto</h2>
+    <h3>Se añadirán de manera predeterminada las siguientes tareas:</h3>
+    <ul>
+        <li>Recolección de muestras</li>
+        <li>Análisis de laboratorio</li>
+        <li>Interpretación de resultados</li>
+        <li>Elaboración del informe</li>
+    </ul>
+    <form th:action="@{/trabajador/proyecto/nuevo/guardar}" method="post">
+        <fieldset>
+            <legend>Información del nuevo proyecto</legend>
+            <p>
+                <label for="nombre">Nombre:</label>
+                <input type="text" th:value="${proyecto.nombre}" id="nombre" name="nombre" required>
+            </p>
+            <p>
+                <label for="descripcion">Descripción:</label>
+                <input type="text" th:value="${proyecto.descripcion}" id="descripcion" name="descripcion" required>
+            </p>
+            <p>
+                <label for="zona">Zona:</label>
+                <input type="text" th:value="${proyecto.zona}" id="zona" name="zona" required>
+            </p>
+            <p>
+                <label for="fecha">Inicio previsto:</label>
+                <input type="date" th:value="${proyecto.fecha}" id="fecha" name="fecha" required>
+            </p>
+            <p>
+                <input type="submit" value="Guardar cambios">
+            </p>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

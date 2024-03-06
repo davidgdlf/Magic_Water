@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Inicio de sesión</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('https://controldelagua.es/wp-content/uploads/2018/01/drops-of-water-578897_1920.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .form-signin {
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-signin .form-signin-heading {
+            margin-bottom: 30px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-signin label {
+            display: none;
+        }
+
+        .form-signin input[type="text"],
+        .form-signin input[type="password"],
+        .form-signin button[type="submit"] {
+            margin-bottom: 20px;
+            border-radius: 10px;
+            padding: 15px;
+            font-size: 18px;
+            width: calc(100% - 30px);
+            transition: background-color 0.3s, color 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .form-signin input[type="text"]:focus,
+        .form-signin input[type="password"]:focus {
+            border-color: #007bff;
+        }
+
+        .form-signin button[type="submit"] {
+            background-color: #4CAF50;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .form-signin button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .form-signin input[type="text"]:hover,
+        .form-signin input[type="password"]:hover {
+            background-color: #f9f9f9;
+            border-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <form class="form-signin" method="post" action="/login">
+        <h2 class="form-signin-heading">Inicia Sesión</h2>
+        <label for="username" class="sr-only">NIF:</label>
+        <input type="text" id="username" name="username" class="form-control" placeholder="NIF" required autofocus>
+
+        <label for="password" class="sr-only">Contraseña:</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" required>
+
+        <input name="_csrf" type="hidden" value="XKn1lOd3607Lo6gxxL3l7gezWN03e7P3zkvoQ4SywQkd-BRIa5nB8YMV2nrmlpAD8JDRizKLdb8OHovarS2NdbTTo2p5yHV4" />
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sesión</button>
+    </form>
+</div>
+</body>
+</html>

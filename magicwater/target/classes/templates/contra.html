@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Supermercados de la abuela</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            color: #333;
+            margin-top: 50px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        form {
+            width: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        fieldset {
+            border: none;
+        }
+
+        legend {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        input[type="password"] {
+            width: calc(100% - 10px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="button"],
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="button"]:hover,
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        #error {
+            color: red;
+            visibility: hidden;
+            margin-top: 10px;
+        }
+
+        .logout-btn {
+            background-color: #dc3545;
+            margin-top: 20px;
+        }
+
+        .logout-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+<h2>
+    <a href="/">Supermercados de la abuela</a>
+</h2>
+<h2 id="error">Las contraseñas no coinciden</h2>
+<form th:action="@{/guardarcontra}" method="post" id="formulario">
+    <fieldset>
+        <legend>Establece la nueva contraseña</legend>
+        <p>
+            <label for="pw1">Nueva contraseña: </label>
+            <input type="password" name="pw1" id="pw1" required>
+        </p>
+        <p>
+            <label for="pw2">Vuelva a introducir la contraseña: </label>
+            <input type="password" name="pw2" id="pw2" required>
+        </p>
+        <p>
+            <input type="button" value="Guardar nueva contraseña" onclick="validar()">
+        </p>
+    </fieldset>
+</form>
+<form th:if="${!(login==null)}" th:action="@{/logout}" method="post">
+    <button type="submit" class="logout-btn">Cerrar sesión</button>
+</form>
+<a href="/logout" style="text-decoration: none; color: #007bff; font-weight: bold; font-size: 16px; border: 1px solid #007bff; padding: 10px 20px; border-radius: 5px; display: inline-block; background-color: #fff;">Cerrar sesión</a>
+
+<script>
+    function validar() {
+        let pw1 = document.getElementById("pw1").value;
+        let pw2 = document.getElementById("pw2").value;
+        if (pw1 === pw2) {
+            document.getElementById("formulario").submit();
+        } else {
+            document.getElementById("error").style.visibility = "visible";
+        }
+    }
+</script>
+</body>
+</html>

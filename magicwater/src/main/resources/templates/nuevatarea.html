@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nueva Tarea</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<h2>La nueva tarea será añadida al proyecto Tareas Sueltas</h2>
+<form th:action="@{/trabajador/tarea/nueva/guardar}" method="post">
+    <fieldset>
+        <legend>Añade la nueva tarea</legend>
+        <p>
+            <label for="titulo">Titulo:</label>
+            <input type="text" th:value="${tarea.titulo}" id="titulo" name="titulo" required>
+        </p>
+        <p>
+            <label for="descripcion">Descripción:</label>
+            <input type="text" th:value="${tarea.descripcion}" id="descripcion" name="descripcion" required>
+        </p>
+        <p>
+            <label for="estado">Estado:</label>
+            <select th:value="${tarea.estado}" id="estado" name="estado">
+                <option value="Pendiente">Pendiente</option>
+                <option value="En curso">En curso</option>
+                <option value="Terminada">Terminada</option>
+            </select>
+        </p>
+        <p>
+            <label for="inicioprevisto">Inicio previsto:</label>
+            <input type="date" th:value="${tarea.inicioprevisto}" id="inicioprevisto" name="inicioprevisto">
+        </p>
+        <p>
+            <label for="finprevisto">Fin previsto:</label>
+            <input type="date" th:value="${tarea.finprevisto}" id="finprevisto" name="finprevisto">
+        </p>
+        <p>
+            <label for="inicioreal">Inicio real:</label>
+            <input type="date" th:value="${tarea.inicioreal}" id="inicioreal" name="inicioreal">
+        </p>
+        <p>
+            <label for="finreal">Fin real:</label>
+            <input type="date" th:value="${tarea.finreal}" id="finreal" name="finreal">
+        </p>
+        <p>
+            <input type="submit" value="Guardar cambios">
+        </p>
+    </fieldset>
+</form>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmar Eliminación de Tarea</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+      font-size: 16px;
+      border: 1px solid #007bff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      background-color: #fff;
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    .button:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+<h1>¿Está seguro de que desea eliminar esta tarea?</h1>
+<p>Esta acción no se puede deshacer.</p>
+<a th:href="@{'/trabajador/tarea/eliminar/ejecutar?id=' + ${tarea.idtarea}}" class="button">Confirmar Eliminación</a>
+<a href="/" class="button">Cancelar</a>
+</body>
+</html>

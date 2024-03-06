@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Magic Water</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 50px;
+        }
+
+        h2 {
+            color: #666;
+            margin-top: 30px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        p {
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        span {
+            margin-right: 5px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<p th:if="${login == null}">
+    Usuario: sin inicio de sesión
+</p>
+<p th:if="${!(login == null)}">
+    Usuario:
+    <span th:text="${login.getNif()}"></span>
+    <span th:text="${login.getNombre()}"></span>
+    <span th:text="${login.getApellidos()}"></span>
+    <span th:text="${login.getCategoria()}"></span>
+</p>
+<p>
+    <a th:if="${login == null}" th:href="@{/login}">Iniciar sesión</a>
+    <a th:if="${!(login == null)}" th:href="@{/logout}">Cerrar sesión</a>
+    <a th:if="${!(login == null)}" th:href="@{/perfil}">Perfil</a>
+</p>
+
+<h1>Magic Water</h1>
+<h2><a href="/supervisor">Inspeccionar tareas (solo supervisores)</a></h2>
+<h2><a href="/trabajador">Gestionar tareas (solo trabajadores)</a></h2>
+</body>
+</html>
